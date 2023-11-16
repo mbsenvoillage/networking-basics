@@ -58,15 +58,100 @@ IP addresses can be used to track a device's location and internet activity, rai
 
 ## Lesson 2: Structure of an IP Address
 
-IPv4 Address Structure
-Binary and Decimal Formats
-Example of Conversion between Binary and Decimal
-IPv6 Address Structure
-Hexadecimal Format
-Compression and Expansion of IPv6 Addresses
-Subnetting Basics
-What is Subnetting?
-Purpose and Benefits in Network Design
+### IPv4 Address Structure
+
+#### Understanding Binary and Decimal Formats
+
+- An IPv4 address is a 32-bit number, usually represented in decimal format for human readability, divided into four 8-bit fields called octets.
+- Each octet is a decimal representation of a binary number ranging from 0 to 255.
+- Example: The IP address 192.168.1.1 in binary would be 11000000.10101000.00000001.00000001.
+
+#### IPv4 Address Representation
+
+- The dotted decimal format is the standard representation for IPv4 addresses.
+- Each part of the address ranges from 0 to 255, representing a byte of the IP address.
+- Example: In the address 192.168.1.1, 192 is the first byte, 168 is the second byte, and so on.
+
+### IPv6 Address Structure
+
+#### Hexadecimal Format and Its Necessity
+
+- IPv6 addresses are 128 bits long, divided into eight 16-bit blocks.
+- Each block is represented as four hexadecimal digits, separated by colons.
+- Example: An IPv6 address might look like 2001:0db8:85a3:0000:0000:8a2e:0370:7334.
+
+#### Compression and Expansion
+
+- Leading zeros within a block can be omitted for brevity.
+- Consecutive blocks of zeros can be replaced with a double colon (::), but this can only be done once in an IPv6 address to avoid ambiguity.
+- Example: The address 2001:0db8:0000:0000:0000:0000:1428:57ab can be compressed to 2001:0db8::1428:57ab.
+
+### Subnetting Basics
+
+#### What is Subnetting?
+
+- Subnetting is a method to divide a network into smaller, more efficient subnetworks (or subnets).
+- It is done by extending the natural boundary of an IP address to allow for more efficient use of IP addresses.
+
+#### Purpose and Benefits
+
+- Increases routing efficiency.
+- Enhances network security and performance.
+- Helps in better organization and management of network resources.
+
+### Understanding Subnet Masks
+
+#### Definition and Role of a Subnet Mask
+
+- A subnet mask is a 32-bit number that masks an IP address and divides the IP address into network address and host address.
+- Subnet masks are used to designate the network and host portions of an IP address.
+- The subnet mask determines which part of the IP address refers to the network and which part refers to the node (or host).
+- For example, in the IP address 192.168.1.10 with a subnet mask of 255.255.255.0, the 192.168.1 part represents the network, and 10 represents the host within that network.
+
+#### CIDR Notation
+
+- Classless Inter-Domain Routing (CIDR) notation is a method of denoting the network and usable host ranges in an IP address.
+- CIDR uses a suffix like /24 to denote how many bits are used for the network part of the address.
+- The format is an IP address, followed by a slash, and then a number (e.g., 192.168.1.0/24).
+- The number after the slash represents the number of consecutive 1's in the subnet mask. For example, /24 means the first 24 bits are used for the network part of the address.
+
+#### Example of a Subnet Mask in Use
+
+- Consider an IP address 192.168.1.5 with a subnet mask of 255.255.255.0.
+- This mask in binary is 11111111.11111111.11111111.00000000.
+- Applying this mask to the IP address, the network portion is 192.168.1 and the host portion is .5.
+
+#### CIDR Notation Example
+
+- An address 192.168.1.0/24 indicates a subnet mask of 255.255.255.0.
+- This means the network part of the address includes the first 24 bits (192.168.1), and the remaining 8 bits are for host addresses.
+
+### Practical Application: Subnetting a Network
+
+#### Objective
+
+Divide a network into smaller subnetworks to improve management, security, and utilization of IP addresses.
+
+#### Scenario and Task
+
+You have a network with the address 192.168.1.0/24 and need to create four subnets.
+Each subnet should have an equal number of hosts.
+
+### Steps for Subnetting
+
+Calculate the new subnet mask: Since you need four subnets, divide the 256 addresses into four groups. This requires two additional bits (as 2^2 = 4). So, the new subnet mask is /26 (or 255.255.255.192).
+Determine the subnets:
+Subnet 1: 192.168.1.0 to 192.168.1.63
+Subnet 2: 192.168.1.64 to 192.168.1.127
+Subnet 3: 192.168.1.128 to 192.168.1.191
+Subnet 4: 192.168.1.192 to 192.168.1.255
+Assigning IP Addresses
+
+Assign IP addresses within each subnet. For example, in Subnet 1, valid host addresses range from 192.168.1.1 to 192.168.1.62.
+
+#### IPv4 vs. IPv6 in Subnetting
+
+- Differences in subnetting strategies between IPv4 and IPv6.
 
 ## Lesson 3: IP Address Classes and Allocation
 
